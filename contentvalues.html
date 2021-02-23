@@ -1,0 +1,36 @@
+<html>
+ <head>
+ <script  type="text/javascript">
+  var myData=new Array();
+ myData[1]='56000';
+myData[2]='30000';
+myData[3]='275000';
+</script>
+
+ 
+
+
+</head>
+<body>
+<form id="example" name="example">
+   <select id="selector" name="selector">
+     <option value="" selected></option>
+    <option value=1>Telivision</option>
+  <option value=2>Laptop</option>
+ <option value=3></option>
+</select>
+<br/>
+<input type="text" value="" id="population" name="populateitem">
+</form>
+
+
+<script type="text/javascript">
+     document.example.selector.onchange=updateText;
+    function updateText()
+ {    
+  var obj=document.example.selector;
+     document.example.populateitem.value=myData[obj.value];
+}
+</script>
+</body>
+</html>

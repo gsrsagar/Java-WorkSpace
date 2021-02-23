@@ -1,0 +1,40 @@
+
+SQL>  create table employee( empno number primary key
+                            ename varchar(35) not null
+                              hiredate date,
+                             salary numbner(10,3),
+                             comission number,
+                             job_id number,
+                             dept_no number,
+                             managerno number,
+
+                            constraint ch_ename check(ename=uppr(ename)),
+                            constraint ch_comm  check(commision<1000),
+                           constraint fk_dep_emp foreign key(dept_no) references
+   department(dept_no) on delete set null,
+                          constraint fk_job_emp foreign key(job_code) references
+ job(job_code) on delete set null,
+                            constraint fk_managerno_emp foreign key(managerno) references
+ employee(empno) on delete set null);
+
+
+
+SQL> create table department(dept_no number primary key, dept_name varchar(10),
+loc_id number, constraint fk_dep_loc_id  foreign key(loc_id) references location
+(loc_id) on delete set null);
+
+
+
+
+create table location(loc_id number primary key, loc_name varchar(30));
+
+create table job(jod_id number primary key, job_name varchar(20));
+
+
+
+
+
+
+
+
+
