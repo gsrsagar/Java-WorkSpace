@@ -1,0 +1,31 @@
+SQL> SPOOL
+currently spooling to C:\Sagar_workspace\SQL07.TXT
+SQL> select  empno from employee where ename='SAGAR' OR ENAME= 'PADMA';
+
+     EMPNO                                                                      
+----------                                                                      
+        20                                                                      
+        11                                                                      
+
+SQL> SELECT  ename from employee where ename in (select ename from employee where managerno in(
+  2  (select  empno from employee where ename='SAGAR' and ENAME= 'PADMA'));
+(select  empno from employee where ename='SAGAR' and ENAME= 'PADMA'))
+                                                                    *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL> SELECT  ename from employee where ename in (select empno from employee where managerno = any(
+  2  (select  empno from employee where ename='SAGAR' and ENAME= 'PADMA'));
+(select  empno from employee where ename='SAGAR' and ENAME= 'PADMA'))
+                                                                    *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL> commit
+  2  ;
+
+Commit complete.
+
+SQL> spool off;

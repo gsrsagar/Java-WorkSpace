@@ -1,0 +1,44 @@
+SQL> select * from employee;
+
+     EMPNO ENAME                               HIREDATE      SALARY  COMISSION  
+---------- ----------------------------------- --------- ---------- ----------  
+  JOB_CODE    DEPT_NO  MANAGERNO                                                
+---------- ---------- ----------                                                
+        20 SAGAR                               12-APR-19      90000        999  
+         9          5         20                                                
+                                                                                
+        21 PRAVALLIKAAA                        13-MAY-19      80000        100  
+         8          4         21                                                
+                                                                                
+
+SQL> insert into employee values(&empno,'&ename','&hiredate',&salary,&comission,&job_code,&dept_no,&managerno);
+Enter value for empno: 22
+Enter value for ename: VINU
+Enter value for hiredate: 14-jun-2019
+Enter value for salary: 70000
+Enter value for comission: 101
+Enter value for job_code: 7
+Enter value for dept_no: 3
+Enter value for managerno: 22
+old   1: insert into employee values(&empno,'&ename','&hiredate',&salary,&comission,&job_code,&dept_no,&managerno)
+new   1: insert into employee values(22,'VINU','14-jun-2019',70000,101,7,3,22)
+
+1 row created.
+
+SQL> select * from employee;
+
+     EMPNO ENAME                               HIREDATE      SALARY  COMISSION  
+---------- ----------------------------------- --------- ---------- ----------  
+  JOB_CODE    DEPT_NO  MANAGERNO                                                
+---------- ---------- ----------                                                
+        20 SAGAR                               12-APR-19      90000        999  
+         9          5         20                                                
+                                                                                
+        21 PRAVALLIKAAA                        13-MAY-19      80000        100  
+         8          4         21                                                
+                                                                                
+        22 VINU                                14-JUN-19      70000        101  
+         7          3         22                                                
+                                                                                
+
+SQL> exit
